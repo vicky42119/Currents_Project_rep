@@ -1,208 +1,104 @@
-* {
-  box-sizing: border-box;
-}
 
-html,
-body {
-  margin: 0;
-  padding: 0;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+html {
+  background-color: rgb(34, 34, 34);
+  overflow-x: hidden;
 }
 
 body {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-  letter-spacing: -0.025rem;
+  margin-left: 2vw;
 }
 
-.header_background {
-  background-color: rgb(36, 36, 36);
-  position: fixed;
-  width: 139vw;
-  height: 20vh;
-  opacity: 0.6;
-  z-index: 999;
+.top-bar {
+  position: relative;
+  top: 1.75vh;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  margin: 0%;
 }
 
-.header_background:hover {
-  transition: 1s ease;
+div {
+  border: 0.5px solid rgb(255, 255, 255);
+  max-width: 325px; 
+}
+
+.pixel:hover {
+  background-color: rgb(255, 5, 5);
+}
+
+.grid-container {
+
+  display: grid;
+  width: 260px;
+  height: 240px;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+
+.characters {
+  margin-top: 5vh;
+  margin-left: 4vw;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: none;
+  transition: all .2s ease-in-out;
+}
+
+.characters:hover { transform: scale(1.1); }
+
+.all-characters {
+  top: 20vh;
+  position: relative;
+  left: 4vw;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  overflow-x: scroll;
+  min-width: 100%;
+  min-height: 60%;
+  border: none;
 }
 
 h2 {
-  font-size: 2vh;
+  font-size: 10pt;
+  margin: 0;
   color: white;
-  margin-left: 3vh;
-  opacity: 1;
-  position: fixed;
-  z-index: 999;
+  font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
-  font-family: Helvetica, sans-serif;
-}
-
-.container {
-  width: 177.5em;
-  min-height: 330vh;
-  background-color: rgb(36, 36, 36);
-}
-.filters {
-  position: fixed;
-  display: flex;
-  flex-direction: row;
-  justify-content:space-evenly;
-  z-index: 999;
-  top: 6vh;
-  flex-grow: 0;
-  gap: 30pt;
-  margin-left: 4vh;
-
-}
-
-.Artist {
- 
-  width: 15vh;
-  color: white;
-  font-size: 4vh;
-}
-
-
-
-.Year {
-  width: 15vh;
-  display: inline-block;
-  color: white;
-  font-size: 4vh;
-}
-
-
-.Medium {
-  width: 15vh;
-  display: inline-block;
-  color: white;
-  font-size: 4vh;
-}
-
-
-.Printer {
-  width: 15vh;
-  display: inline-block;
-  color: white;
-  font-size: 4vh;
-}
-
-
-.Color {
-  width: 15vh;
-  display: inline-block;
-  color: white;
-  font-size: 4vh;
-}
-
-
-.posters-container {
-    position: relative;
-    top: 30vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  border-style: solid;
-  border-width: 3px;
-  border-color: rgb(61, 61, 61);
-}
-
-.poster {
-  min-width: 300px;
-  padding: 35px;
-  border-style: solid;
-  border-color: rgb(255, 255, 255);
-  border-width: 0.3px;
-}
-
-.text {
-  line-height: 19px;
-  color: white;
-  position: relative;
-  bottom: 3vh;
-  left: 50vh;
-  display: none;
-
-
-}
-
-.img2 {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  object-fit: cover;
-  box-shadow: 5px 5px 10px black;
-  z-index: 999;
-  transition: 1s ease;
-}
-
-.img2:hover {
-  -webkit-transform: scale(1.15);
-  -ms-transform: scale(1.15);
-  transform: scale(1.15);
-
-}
-
-.background-screen {
-  width: 100vw;
-  height: 100vh;
-  opacity: 0.75;
-  background: black;
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-  display: none;
-}
-.show-info {
-  z-index: 999;
-}
-
-.show-info .text {
-  display: block;
-}
-
-.show-info img,
-.show-info:hover img {
-  transform: scale(1.5);
-}
-
-
-h5 {
-  font-family: helvetica;
-  font-weight: 100;
-  margin-bottom: -20px;
-  font-size: 8pt;
-}
-
-h3 {
-  font-family: helvetica;
-  font-weight: 700;
-  font-size: 10pt;
-  margin-bottom: -10px;
-
-}
-
-.hide {
-  opacity: 0;
-
-}
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none; 
-  background-color: transparent;
-  border-style: solid;
-  border-width: 2pt;
-  border-color: white;
-  padding: 0 0 0 0;
+  font-size: 20pt;
   margin: 0;
-  width: 15vh;
-  cursor: inherit;
-  z-index: 1;
-  outline: none;
   color: white;
-  font-size: 0.5em;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 7pt;
+  font-family: 'Open Sans', sans-serif;
+  
+}
+
+h1:hover {
+  background-color: gray;
+}
+
+.line1 { width:100%; height:0.5px; background: #fff; position: relative; top: 3vh;}
+
+.line2 { width:100%; height:0.5px; background: #fff; position: relative; top: 24vh;}
+
+.bottom-bar {
+  position: relative;
+  top: 25vh;
+  display: flex;
+  flex-direction: row;
+  align-items: right;
+  gap: 10px;
+  width: 100%;
+  margin: 0%;
 }
