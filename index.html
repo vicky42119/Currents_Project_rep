@@ -19,8 +19,8 @@
 
     <div class="all-characters">
 
-    <div class="characters">
-      <div class="grid-container"> </div>
+    <div class="characters" onclick="enlargeImg()" id="grid-container" onclick="imageClick()" id="background-screen">
+      <div class="grid-container"></div>
         <h2>Creator</h2>
         <h2>Date</h2>
         <h2>name</h2>
@@ -95,15 +95,19 @@
           <h2>Date</h2>
           <h2>Name</h2>
         </div>
-    </div>  
+    </div> 
 
     <section class="line2"></section>
+
+    <section class="background-screen" onclick="closeScreen()" onclick="resetImg()"></section>
 
     <section class="bottom-bar">
       <h1>Collaborate</h1>
       <h1>Donwload</h1>
     </section>
 
-    <script src="script.js"></script>
+    <script src="script.js"> // Get the img object using its Id
+  
+  </script>
   </body>
 </html>

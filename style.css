@@ -54,15 +54,16 @@ div {
 .characters:hover { transform: scale(1.1); }
 
 .all-characters {
-  top: 20vh;
+  align-items: center;
   position: relative;
-  left: 4vw;
+  top: -6vh;
   display: flex;
+  padding: 3vw;
   flex-direction: row;
   gap: 30px;
   overflow-x: scroll;
   min-width: 100%;
-  min-height: 60%;
+  min-height: 100%;
   border: none;
 }
 
@@ -102,3 +103,29 @@ h1:hover {
   width: 100%;
   margin: 0%;
 }
+
+.background-screen {
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.75;
+  background: black;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+.show-info {
+  z-index: 999;
+}
+
+.show-info .text {
+  display: block;
+}
+
+.show-info img,
+.show-info:hover img {
+  transform: scale(1.5);
+}
+
