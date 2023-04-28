@@ -1,66 +1,78 @@
 const gridSize = 33.5;
 const canvasWidth = 500 * 26;
 const canvasHeight = 500;
-const size = 70;
+const size = 90;
 
 // Define shapes
-const square = {
-    draw: (ctx, x, y, scale = 1) => {
-      ctx.fillStyle = "red";
-      ctx.fillRect(x, y, size * scale, size * scale);
+const circle = {
+    draw: (ctx, x, y, scale = 1, alpha = 1) => {
+      ctx.beginPath();
+      ctx.arc(x + (size / 2) * scale, y + (size / 2) * scale, (size / 2) * scale, 0, 2 * Math.PI);
+      ctx.strokeStyle = "blue";
+      ctx.lineWidth = 20;
+      ctx.globalAlpha = 0.5; // set the opacity of the shape
+      ctx.stroke();
+      ctx.globalAlpha = 1; // reset the opacity of the canvas context
       addMoveListener(ctx.canvas, x, y, scale);
     }
   };
-  
-const circle = {
-  draw: (ctx, x, y, scale = 1) => {
-    ctx.beginPath();
-    ctx.arc(x + (size / 2) * scale, y + (size / 2) * scale, (size / 2) * scale, 0, 2 * Math.PI);
-    ctx.strokeStyle = "blue";
-    ctx.lineWidth = 10;
-    ctx.stroke();
-    addMoveListener(ctx.canvas, x, y, scale);
-  }
-};
-  
-const triangle = {
-  draw: (ctx, x, y, scale = 1) => {
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(x + size * scale, y);
-    ctx.lineTo(x + (size / 2) * scale, y + size * scale);
-    ctx.closePath();
-    ctx.fillStyle = "green";
-    ctx.fill();
-    addMoveListener(ctx.canvas, x, y, scale);
-  }
-};
-  
-const slantedBar = {
-  draw: (ctx, x, y, scale = 1) => {
-    ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(x + size * scale, y - size * scale);
-    ctx.lineTo(x + size * scale, y - size * scale + 30 * scale);
-    ctx.lineTo(x, y + 30 * scale);
-    ctx.closePath();
-    ctx.fillStyle = "purple";
-    ctx.fill();
-    addMoveListener(ctx.canvas, x, y, scale);
-  }
-};
-
-const semiCircle = {
-  draw: (ctx, x, y, scale = 1) => {
-    ctx.beginPath();
-    ctx.arc(x + size/2 * scale, y + size/2 * scale, size/2 * scale, Math.PI, 0);
-    ctx.lineTo(x + size * scale, y + size * scale);
-    ctx.closePath();
-    ctx.fillStyle = "orange";
-    ctx.fill();
-    addMoveListener(ctx.canvas, x, y, scale);
-  }
-};
+      
+  const triangle = {
+    draw: (ctx, x, y, scale = 1, alpha = 1) => {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + size * scale, y);
+      ctx.lineTo(x + (size / 2) * scale, y + size * scale);
+      ctx.closePath();
+      ctx.fillStyle = "green";
+      ctx.globalAlpha = 0.5; // set the opacity of the shape
+      ctx.fill();
+      ctx.globalAlpha = 1; // reset the opacity of the canvas context
+      addMoveListener(ctx.canvas, x, y, scale);
+    }
+  };
+      
+  const slantedBar = {
+    draw: (ctx, x, y, scale = 2, alpha = 1) => {
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(x + size * scale, y - size * scale);
+      ctx.lineTo(x + size * scale, y - size * scale + 25 * scale);
+      ctx.lineTo(x, y + 30 * scale);
+      ctx.closePath();
+      ctx.fillStyle = "purple";
+      ctx.globalAlpha = 0.5; // set the opacity of the shape
+      ctx.fill();
+      ctx.globalAlpha = 1; // reset the opacity of the canvas context
+      addMoveListener(ctx.canvas, x, y, scale);
+    }
+  };
+    
+  const semiCircle = {
+    draw: (ctx, x, y, scale = 2, alpha = 1) => {
+      ctx.beginPath();
+      ctx.arc(x + size/2 * scale, y + size/2 * scale, size/2 * scale, Math.PI, 0);
+      ctx.lineTo(x + size * scale, y + size * scale);
+      ctx.closePath();
+      ctx.fillStyle = "orange";
+      ctx.globalAlpha = 0.5; // set the opacity of the shape
+      ctx.fill();
+      ctx.globalAlpha = 1; // reset the opacity of the canvas context
+      addMoveListener(ctx.canvas, x, y, scale);
+    }
+  };
+    
+  const square = {
+    draw: (ctx, x, y, scale = 1.5, alpha = 1) => {
+      ctx.beginPath();
+      ctx.rect(x, y, size/3 * scale, size * scale);
+      ctx.fillStyle = "red";
+      ctx.globalAlpha = 0.5; // set the opacity of the shape
+      ctx.fill();
+      ctx.globalAlpha = 1; // reset the opacity of the canvas context
+      addMoveListener(ctx.canvas, x, y, scale);
+    }
+  };
 
 // Define buttons
 const squareBtn = document.getElementById("square-btn");
@@ -140,27 +152,24 @@ for (let i = 0; i < 26; i++) {
     const y = Math.floor((event.clientY - canvas.offsetTop) / gridSize) * gridSize;
 
     switch (shape) {
-        case "square":
-          square.draw(ctx, x, y);
-          break;
-        case "circle":
-          circle.draw(ctx, x, y);
-          break;
-        case "triangle":
-          triangle.draw(ctx, x, y);
-          break;
+      case "square":
+        square.draw(ctx, x, y);
+        break;
+      case "circle":
+        circle.draw(ctx, x, y);
+        break;
+      case "triangle":
+        triangle.draw(ctx, x, y);
+        break;
         case "slantedBar":
-          slantedBar.draw(ctx, x, y);
-          break;
-        case "semiCircle":
-          semiCircle.draw(ctx, x, y);
-          break;
-        default:
-          break;
-      }
+            slantedBar.draw(ctx, x, y);
+            break;
+            case "semiCircle":
+                semiCircle.draw(ctx, x, y);
+                break;
+    }
   });
 
-  
   // Create grid
   for (let x = 0; x <= canvasWidth; x += gridSize) {
     ctx.moveTo(x, 0);
