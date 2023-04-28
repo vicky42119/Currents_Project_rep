@@ -3,68 +3,65 @@ const canvasWidth = 500 * 26;
 const canvasHeight = 500;
 const size = 70;
 
-
 // Define shapes
-const circle = {
+const square = {
     draw: (ctx, x, y, scale = 1) => {
-      ctx.beginPath();
-      ctx.arc(x + (size / 2) * scale, y + (size / 2) * scale, (size / 2) * scale, 0, 2 * Math.PI);
-      ctx.strokeStyle = "blue";
-      ctx.lineWidth = 10;
-      ctx.stroke();
-      addMoveListener(ctx.canvas, x, y, scale);
-    }
-  };
-    
-  const triangle = {
-    draw: (ctx, x, y, scale = 1) => {
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x + size * scale, y);
-      ctx.lineTo(x + (size / 2) * scale, y + size * scale);
-      ctx.closePath();
-      ctx.fillStyle = "green";
-      ctx.fill();
-      addMoveListener(ctx.canvas, x, y, scale);
-    }
-  };
-    
-  const slantedBar = {
-    draw: (ctx, x, y, scale = 1) => {
-      ctx.beginPath();
-      ctx.moveTo(x, y);
-      ctx.lineTo(x + size * scale, y - size * scale);
-      ctx.lineTo(x + size * scale, y - size * scale + 30 * scale);
-      ctx.lineTo(x, y + 30 * scale);
-      ctx.closePath();
-      ctx.fillStyle = "purple";
-      ctx.fill();
-      addMoveListener(ctx.canvas, x, y, scale);
-    }
-  };
-  
-  const semiCircle = {
-    draw: (ctx, x, y, scale = 1) => {
-      ctx.beginPath();
-      ctx.arc(x + size/2 * scale, y + size/2 * scale, size/2 * scale, Math.PI, 0);
-      ctx.lineTo(x + size * scale, y + size * scale);
-      ctx.closePath();
-      ctx.fillStyle = "orange";
-      ctx.fill();
-      addMoveListener(ctx.canvas, x, y, scale);
-    }
-  };
-  
-  const square = {
-    draw: (ctx, x, y, scale = 1) => {
-      ctx.beginPath();
-      ctx.rect(x, y, size * scale, size * scale);
       ctx.fillStyle = "red";
-      ctx.fill();
+      ctx.fillRect(x, y, size * scale, size * scale);
       addMoveListener(ctx.canvas, x, y, scale);
     }
   };
   
+const circle = {
+  draw: (ctx, x, y, scale = 1) => {
+    ctx.beginPath();
+    ctx.arc(x + (size / 2) * scale, y + (size / 2) * scale, (size / 2) * scale, 0, 2 * Math.PI);
+    ctx.strokeStyle = "blue";
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    addMoveListener(ctx.canvas, x, y, scale);
+  }
+};
+  
+const triangle = {
+  draw: (ctx, x, y, scale = 1) => {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + size * scale, y);
+    ctx.lineTo(x + (size / 2) * scale, y + size * scale);
+    ctx.closePath();
+    ctx.fillStyle = "green";
+    ctx.fill();
+    addMoveListener(ctx.canvas, x, y, scale);
+  }
+};
+  
+const slantedBar = {
+  draw: (ctx, x, y, scale = 1) => {
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + size * scale, y - size * scale);
+    ctx.lineTo(x + size * scale, y - size * scale + 30 * scale);
+    ctx.lineTo(x, y + 30 * scale);
+    ctx.closePath();
+    ctx.fillStyle = "purple";
+    ctx.fill();
+    addMoveListener(ctx.canvas, x, y, scale);
+  }
+};
+
+const semiCircle = {
+  draw: (ctx, x, y, scale = 1) => {
+    ctx.beginPath();
+    ctx.arc(x + size/2 * scale, y + size/2 * scale, size/2 * scale, Math.PI, 0);
+    ctx.lineTo(x + size * scale, y + size * scale);
+    ctx.closePath();
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    addMoveListener(ctx.canvas, x, y, scale);
+  }
+};
+
 // Define buttons
 const squareBtn = document.getElementById("square-btn");
 const circleBtn = document.getElementById("circle-btn");
@@ -162,6 +159,7 @@ for (let i = 0; i < 26; i++) {
           break;
       }
   });
+
   
   // Create grid
   for (let x = 0; x <= canvasWidth; x += gridSize) {
@@ -184,7 +182,7 @@ ctx.textBaseline = ""; // center the text horizontally
   ctx.fillStyle = "rgba(0,0,0,0.4)";
   ctx.fillText(String.fromCharCode(65+i), 180, 350);
 }
-  
+
 document.body.appendChild(canvasContainer);
 
 
