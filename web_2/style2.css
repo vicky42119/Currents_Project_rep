@@ -1,68 +1,82 @@
-#canvas {
-    width: 500px;
-    height: 500px;
-    border: 1px solid black;
-    margin: 20px auto;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+html {
+  background-color: rgb(34, 34, 34);
+  overflow-x: hidden;
+}
+
+.funtionalities {
+  margin-bottom: 20px;
+  position: relative;
+  top: 7vh
+
+}
+
+body {
+  margin-left: 2vw;
+}
+
+canvas {
+  display: block;
+}
+
+.canvas-label {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  background-color: black;
+}
+
+.top-bar {
+  position: relative;
+  top: 1.75vh;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 100%;
+  margin: 0%;
+}
+
+h2 {
+  font-size: 10pt;
+  margin: 0;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-size: 20pt;
+  margin: 0;
+  color: white;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 7pt;
+  font-family: 'Open Sans', sans-serif;
   
-  .shape {
-    width: 50px;
-    height: 50px;
-    margin: 10px;
-    border: 1px solid black;
-    cursor: move;
-  }
+}
+
+h1:hover {
+  background-color: gray;
+}
+
+.line1 { width:100%; height: 1px; background: #fff; position: relative; top: 3vh;}
+
   
-  #circle {
-    border-radius: 50%;
-    background-color: red;
-  }
-  
-  #square {
-    background-color: blue;
-  }
-  
-  #triangle {
-    width: 0;
-    height: 0;
-    border-bottom: 50px solid green;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-  }
-  
-  #rectangle {
-    width: 75px;
-    height: 50px;
-    background-color: yellow;
-  }
-  
-  #hexagon {
-    width: 100px;
-    height: 50px;
-    background-color: orange;
-    position: relative;
-  }
-  
-  #hexagon:before,
-  #hexagon:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-  }
-  
-  #hexagon:before {
-    bottom: 100%;
-    border-bottom: 25px solid orange;
-  }
-  
-  #hexagon:after {
-    top: 100%;
-    width: 0;
-    border-top: 25px solid orange;
-  }
-  
-  
+button {
+  font-size: 10pt;
+  margin: 0;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 7pt;
+  font-family: 'Open Sans', sans-serif;
+  background-color:rgb(34, 34, 34);
+  color: white;
+ 
+}
+
+label {
+  padding-left: 50px;
+}
   
   
