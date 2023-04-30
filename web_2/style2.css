@@ -5,7 +5,7 @@ html {
   overflow-x: hidden;
 }
 
-.funtionalities {
+.controls {
   margin-bottom: 20px;
   position: relative;
   top: 7vh
@@ -78,5 +78,7 @@ button {
 label {
   padding-left: 50px;
 }
+
+
   
   

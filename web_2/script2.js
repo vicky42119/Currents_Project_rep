@@ -5,6 +5,9 @@ const size = 90;
 
 // Define shapes
 const circle = {
+    x: 0,
+    y: 0,
+    size: size,
     draw: (ctx, x, y, scale = 1, alpha = 1) => {
       ctx.beginPath();
       ctx.arc(x + (size / 2) * scale, y + (size / 2) * scale, (size / 2) * scale, 0, 2 * Math.PI);
@@ -18,6 +21,9 @@ const circle = {
   };
       
   const triangle = {
+    x: 0,
+    y: 0,
+    size: size,
     draw: (ctx, x, y, scale = 1, alpha = 1) => {
       ctx.beginPath();
       ctx.moveTo(x, y);
@@ -33,7 +39,10 @@ const circle = {
   };
       
   const slantedBar = {
-    draw: (ctx, x, y, scale = 2, alpha = 1) => {
+    x: 0,
+    y: 0,
+    size: size,
+    draw: (ctx, x, y, scale = 1.5, alpha = 1) => {
       ctx.beginPath();
       ctx.moveTo(x, y);
       ctx.lineTo(x + size * scale, y - size * scale);
@@ -49,7 +58,10 @@ const circle = {
   };
     
   const semiCircle = {
-    draw: (ctx, x, y, scale = 2, alpha = 1) => {
+    x: 0,
+    y: 0,
+    size: size,
+    draw: (ctx, x, y, scale = 1, alpha = 1) => {
       ctx.beginPath();
       ctx.arc(x + size/2 * scale, y + size/2 * scale, size/2 * scale, Math.PI, 0);
       ctx.lineTo(x + size * scale, y + size * scale);
@@ -63,6 +75,9 @@ const circle = {
   };
     
   const square = {
+    x: 0,
+    y: 0,
+    size: size,
     draw: (ctx, x, y, scale = 1.5, alpha = 1) => {
       ctx.beginPath();
       ctx.rect(x, y, size/3 * scale, size * scale);
@@ -81,24 +96,25 @@ const triangleBtn = document.getElementById("triangle-btn");
 const slantedBarBtn = document.getElementById("slantedBar-btn");
 const semiCircleBtn = document.getElementById("semiCircle-btn");
 
+
 // Add event listeners to buttons
 squareBtn.addEventListener("dragstart", (event) => {
-  event.dataTransfer.setData("shape", "square");
-});
-
-circleBtn.addEventListener("dragstart", (event) => {
-  event.dataTransfer.setData("shape", "circle");
-});
-
-triangleBtn.addEventListener("dragstart", (event) => {
-  event.dataTransfer.setData("shape", "triangle");
-});
-
-slantedBarBtn.addEventListener("dragstart", (event) => {
+    event.dataTransfer.setData("shape", "square");
+  });
+  
+  circleBtn.addEventListener("dragstart", (event) => {
+    event.dataTransfer.setData("shape", "circle");
+  });
+  
+  triangleBtn.addEventListener("dragstart", (event) => {
+    event.dataTransfer.setData("shape", "triangle");
+  });
+  
+  slantedBarBtn.addEventListener("dragstart", (event) => {
     event.dataTransfer.setData("shape", "slantedBar");
   });
-
-semiCircleBtn.addEventListener("dragstart", (event) => {
+  
+  semiCircleBtn.addEventListener("dragstart", (event) => {
     event.dataTransfer.setData("shape", "semiCircle");
   });
 
@@ -118,7 +134,6 @@ for (let i = 0; i < 26; i++) {
   canvas.height = 500;
   canvas.style.border = "1px solid white";
   canvas.style.marginTop = "70px";
-  canvas.style.display = "block"; // set canvas to display block
 
   const label = document.createElement("div");
   label.style.marginTop = "10px"; // add top margin to label
@@ -131,7 +146,9 @@ for (let i = 0; i < 26; i++) {
   labelInput.width = "500px"; // add placeholder to input
   labelInput.addEventListener("input", () => {
     label.textContent = labelInput.value;
+
   });
+
   labelInput.style.marginTop = "5px"; // add top margin to input
 
   container.appendChild(label);
@@ -140,17 +157,37 @@ for (let i = 0; i < 26; i++) {
   canvasContainer.appendChild(container);
 
   const ctx = canvas.getContext("2d");
-// Add event listener to canvas
   canvas.addEventListener("dragover", (event) => {
-    event.preventDefault();
+    event.preventDefault(); // prevent default behavior
+  });
+ 
+  canvas.addEventListener("dragenter", (event) => {
+    event.preventDefault(); // prevent default behavior
+    canvas.style.border = "1px dashed blue"; // add a dashed border to the canvas to indicate that the shape can be dropped here
   });
 
+  canvas.addEventListener("dragleave", (event) => {
+    event.preventDefault(); // prevent default behavior
+    canvas.style.border = "1px solid white"; // remove the dashed border when the shape is dragged away from the canvas
+  });
+  
   canvas.addEventListener("drop", (event) => {
-    event.preventDefault();
+    event.preventDefault(); // prevent default behavior
+    canvas.style.border = "1px solid white"; // remove the dashed border
+  
+    
+    // get the shape from the data transfer object
     const shape = event.dataTransfer.getData("shape");
-    const x = Math.floor((event.clientX - canvas.offsetLeft) / gridSize) * gridSize;
-    const y = Math.floor((event.clientY - canvas.offsetTop) / gridSize) * gridSize;
-
+  
+    // get the canvas context
+    const ctx = canvas.getContext("2d");
+  
+    // get the mouse position relative to the canvas
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+  
+    // draw the shape at the mouse position
     switch (shape) {
       case "square":
         square.draw(ctx, x, y);
@@ -161,13 +198,15 @@ for (let i = 0; i < 26; i++) {
       case "triangle":
         triangle.draw(ctx, x, y);
         break;
-        case "slantedBar":
-            slantedBar.draw(ctx, x, y);
-            break;
-            case "semiCircle":
-                semiCircle.draw(ctx, x, y);
-                break;
-    }
+      case "slantedBar":
+        slantedBar.draw(ctx, x, y);
+        break;
+      case "semiCircle":
+        semiCircle.draw(ctx, x, y);
+        break;
+      default:
+        break;
+    }     
   });
 
   // Create grid
@@ -191,6 +230,8 @@ ctx.textBaseline = ""; // center the text horizontally
   ctx.fillStyle = "rgba(0,0,0,0.4)";
   ctx.fillText(String.fromCharCode(65+i), 180, 350);
 }
+
+
 
 document.body.appendChild(canvasContainer);
 
