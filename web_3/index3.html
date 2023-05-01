@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Modular Letters</title>
+    <script src="fabric.min.js"></script> 
+    <link rel="stylesheet" href="style3.css" />
+  </head>
+  <body>
+
+    <section class="top-bar">
+        <h1>Create Shapeface</h1>
+        <h1>My Shapeface</h1>
+        <h1>Typewritter</h1>
+        <h1>Archive</h1>
+      </section>
+
+      <section class="line1"></section>
+
+    <div class="controls">
+        <p>
+          <button id="add" onclick="Add()">Add a rectangle</button>
+        </p>
+        <p>
+          <button id="add-circle" onclick="AddCircle()">Add a circle</button>
+        </p>
+        <p>
+          <button id="add-triangle" onclick="AddTriangle()">Add a triangle</button>
+        </p>
+        <p>
+            <button id="add-bar" onclick="AddBar()">Add a bar</button>
+          </p>
+          <p>
+            <button id="add-square" onclick="AddSquare()">Add a square</button>
+          </p>
+          <p>
+            <button id="add-semi" onclick="AddSemi()">Add a semi-circle</button>
+          </p>
+      </div>
+      <canvas id="c" width="400" height="300" style="border:1px solid #ccc"></canvas>
+
+    <script src="modular-letters.js"></script>
+    <script src="script3.js"></script>
+  </body>
+</html>
+
+
