@@ -1,16 +1,3 @@
-// Get the download button element
-var downloadBtn = document.getElementById('downloadBtn');
-
-// Add a click event listener to the button
-downloadBtn.addEventListener('click', function() {
-  // Convert the canvas to a data URL
-  var dataURL = canvas.toDataURL('image/png');
-  // Set the download link href to the data URL
-  downloadBtn.href = dataURL;
-  // Set the download link download attribute to the file name
-  downloadBtn.download = 'canvas.png';
-});
-
 var canvas = new fabric.Canvas('c', {
   backgroundColor: 'rgb(34, 34, 34)', // Set the canvas background color
   width: 500, // Set the canvas width
@@ -28,6 +15,38 @@ for (var i = 0; i < canvas.height / gridSize; i++) {
   canvas.add(new fabric.Line([ 0, i * gridSize, canvas.width, i * gridSize], { stroke: 'white', selectable: false }));
 }
 
+var downloadBtn = document.createElement('a');
+downloadBtn.id = 'downloadBtn';
+downloadBtn.innerHTML = 'Download';
+downloadBtn.href = '';
+downloadBtn.download = 'canvas.png';
+document.body.appendChild(downloadBtn);
+
+downloadBtn.addEventListener('click', function() {
+  // Create a new canvas with a transparent background
+  var transparentCanvas = new fabric.Canvas('transparentCanvas', {
+    backgroundColor: 'transparent',
+    width: canvas.width,
+    height: canvas.height
+  });
+
+  // Clone each fabric object on the original canvas and add it to the new canvas
+  canvas.forEachObject(function(obj) {
+    var clone = fabric.util.object.clone(obj);
+    transparentCanvas.add(clone);
+  });
+
+  // Remove the grid from the new canvas
+  transparentCanvas.getObjects('line').forEach(function(line) {
+    transparentCanvas.remove(line);
+  });
+
+  // Convert the new canvas to a data URL with a transparent background
+  var dataURL = transparentCanvas.toDataURL('image/png');
+
+  // Set the download link href to the data URL
+  downloadBtn.href = dataURL;
+});
 
 var deleteIcon = "data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg version='1.1' id='Ebene_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='595.275px' height='595.275px' viewBox='200 215 230 470' xml:space='preserve'%3E%3Ccircle style='fill:%23F44336;' cx='299.76' cy='439.067' r='218.516'/%3E%3Cg%3E%3Crect x='267.162' y='307.978' transform='matrix(0.7071 -0.7071 0.7071 0.7071 -222.6202 340.6915)' style='fill:white;' width='65.545' height='262.18'/%3E%3Crect x='266.988' y='308.153' transform='matrix(0.7071 0.7071 -0.7071 0.7071 398.3889 -83.3116)' style='fill:white;' width='65.544' height='262.179'/%3E%3C/g%3E%3C/svg%3E";
 

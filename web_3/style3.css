@@ -129,7 +129,7 @@ html {
     font-size: 16px;
     padding: 8px;
     border-radius: 4px;
-    border: 1px solid gray;
+    border: 1px solid rgb(255, 255, 255);
     background-color:rgb(34, 34, 34);
   }
 
@@ -191,11 +191,15 @@ flex-direction: column;
 gap: -10px;
 }
 
-#download-btn
-{
- 
+#downloadBtn{
   position: relative;
-  top: -49vh;
-  left: 29vw;
+  top: -47vh;
+  left: 29.5vw;
   width: 70pt;
+  font-size: 10pt;
+    margin: 0;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    border: solid 2px white;
+    padding: 15px;
   }
