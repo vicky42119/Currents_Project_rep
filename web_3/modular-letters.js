@@ -1,12 +1,22 @@
+// Get the download button element
+var downloadBtn = document.getElementById('downloadBtn');
+
+// Add a click event listener to the button
+downloadBtn.addEventListener('click', function() {
+  // Convert the canvas to a data URL
+  var dataURL = canvas.toDataURL('image/png');
+  // Set the download link href to the data URL
+  downloadBtn.href = dataURL;
+  // Set the download link download attribute to the file name
+  downloadBtn.download = 'canvas.png';
+});
+
 var canvas = new fabric.Canvas('c', {
   backgroundColor: 'rgb(34, 34, 34)', // Set the canvas background color
   width: 500, // Set the canvas width
   height: 500, // Set the canvas height
   selection: false // Disable object selection
 });
-
-
-
 
 // Add a grid to the canvas
 var gridSize = 33.3;
@@ -157,15 +167,4 @@ canvasNameInput.addEventListener('change', function() {
   canvas.set('name', canvasName);
 });
 
-const downloadBtn = document.getElementById('download-btn');
 
-downloadBtn.addEventListener('click', () => {
-  // Convert the canvas to a PNG image data URL
-  const imageDataUrl = canvas.toDataURL({ format: 'png' });
-
-  // Create a download link and click it to start the download
-  const downloadLink = document.createElement('a');
-  downloadLink.href = imageDataUrl;
-  downloadLink.download = 'myart.png';
-  downloadLink.click();
-});
