@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <title>Modular Letters</title>
     <script src="fabric.min.js"></script> 
+
     <link rel="stylesheet" href="style3.css" />
   </head>
   <body>
 
     <section class="top-bar">
-        <h1>Create Shapeface</h1>
-        <h1>My Shapeface</h1>
-        <h1>Typewritter</h1>
+        <h3>Create Shapeface</h3>
+        <h1>My Shapefaces</h1>
+        <h1> <a href="/typewritter/index.html"> Typewritter</a></h1>
         <h1>Archive</h1>
       </section>
 
@@ -19,28 +20,53 @@
 
     <div class="controls">
         <p>
-          <button id="add" onclick="Add()">Add a rectangle</button>
+          <button id="add" onclick="Add()"><div class="rectangle-shape"></button>
         </p>
         <p>
-          <button id="add-circle" onclick="AddCircle()">Add a circle</button>
+          <button id="add-circle" onclick="AddCircle()"><div class="circle-shape"></button>
         </p>
         <p>
-          <button id="add-triangle" onclick="AddTriangle()">Add a triangle</button>
+          <button id="add-triangle" onclick="AddTriangle()"><div class="triangle-shape"></button>
         </p>
         <p>
-            <button id="add-bar" onclick="AddBar()">Add a bar</button>
+            <button id="add-bar" onclick="AddBar()"><div class="bar-shape"></button>
           </p>
           <p>
-            <button id="add-square" onclick="AddSquare()">Add a square</button>
+            <button id="add-square" onclick="AddSquare()"><div class="square-shape"></button>
           </p>
-          <p>
-            <button id="add-semi" onclick="AddSemi()">Add a semi-circle</button>
-          </p>
+         
       </div>
-      <canvas id="c" width="400" height="300" style="border:1px solid #ccc"></canvas>
 
+      
+
+        <canvas id="c"></canvas>
+        <div class="canvas-container1">
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+        <canvas id="c"></canvas>
+      </div>
+        
+     
+
+<div class="peopleinput">
+      <div class="textinput">
+        <label for="canvasName">Character Name: </label>
+        <input type="text" id="canvasName">
+      </div>
+
+    <button id="download-btn">Download PNG</button>
+
+  
     <script src="modular-letters.js"></script>
-    <script src="script3.js"></script>
   </body>
 </html>
 

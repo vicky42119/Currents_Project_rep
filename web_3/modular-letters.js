@@ -5,6 +5,9 @@ var canvas = new fabric.Canvas('c', {
   selection: false // Disable object selection
 });
 
+
+
+
 // Add a grid to the canvas
 var gridSize = 33.3;
 for (var i = 0; i < canvas.width / gridSize; i++) {
@@ -117,22 +120,7 @@ function AddBar() {
   canvas.setActiveObject(bar);
 }
 
-function AddSemi() {
-  var semi = new fabric.Ellipse({
-    left: 100,
-    top: 350,
-    rx: 50,
-    ry: 25,
-    fill: getRandomColor(),
-    objectCaching: false,
-    startAngle: 0,
-    endAngle: Math.PI,
-    opacity: 0.65,
-  });
 
-  canvas.add(semi);
-  canvas.setActiveObject(semi);
-}
 
 fabric.Object.prototype.controls.deleteControl = new fabric.Control({
   x: 0.5,
@@ -161,3 +149,23 @@ function renderIcon(ctx, left, top, styleOverride, fabricObject) {
   ctx.drawImage(img, -size/2, -size/2, size, size);
   ctx.restore();
 }
+
+var canvasNameInput = document.getElementById('canvasNameInput');
+
+canvasNameInput.addEventListener('change', function() {
+  var canvasName = canvasNameInput.value;
+  canvas.set('name', canvasName);
+});
+
+const downloadBtn = document.getElementById('download-btn');
+
+downloadBtn.addEventListener('click', () => {
+  // Convert the canvas to a PNG image data URL
+  const imageDataUrl = canvas.toDataURL({ format: 'png' });
+
+  // Create a download link and click it to start the download
+  const downloadLink = document.createElement('a');
+  downloadLink.href = imageDataUrl;
+  downloadLink.download = 'myart.png';
+  downloadLink.click();
+});
