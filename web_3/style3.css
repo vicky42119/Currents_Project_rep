@@ -9,7 +9,7 @@ flex-direction: row;
 gap: 10vh;
 position: relative;
 overflow-x: scroll;
-top: 4vh;
+top: -10pt;
 
 
 
@@ -134,7 +134,17 @@ html {
 
   .textinput {
     position:relative;
+    top: 0vh;
+  }
+
+  .textinput2 {
+    position:relative;
     top: 2vh;
+  }
+
+  .peopleinput {
+    position:relative;
+    top: 0vh;
   }
 
   .rectangle-shape{
@@ -194,6 +204,18 @@ gap: -10px;
     color: white;
     font-family: 'Open Sans', sans-serif;
     border: solid 2px white;
-    padding: 15px;
-    top: -20pt
+    padding: 10px;
+    top: -30pt
   }
+
+  .collaborateBtn{
+    position: relative;
+    left: 270pt;
+    top: -16pt;
+    width: 70pt;
+    font-size: 10pt;
+      margin: 0;
+      color: white;
+      font-family: 'Open Sans', sans-serif;
+      border: solid 2px white;
+    }
