@@ -1,29 +1,23 @@
 
 
-.canvas-container {
-  position: relative;
-  position: relative;
-  top: 2vh;
- 
-  
-  
-  }
 
-.canvas-container1 {
+
+.allcharacters {
 position: relative;
 display: flex;
 flex-direction: row;
 gap: 10vh;
 position: relative;
-left: 70vh;
-top: -50vh;
 overflow-x: scroll;
+top: 4vh;
+
 
 
 }
 
 html {
     background-color: rgb(34, 34, 34);
+    overflow: hidden;
     
   }
   
@@ -37,7 +31,7 @@ html {
     margin: 0%;
     margin-bottom: 20px;
     position: relative;
-    top: 7vh
+    top: 3vh
   
   }
   
@@ -140,7 +134,7 @@ html {
 
   .textinput {
     position:relative;
-    top: -43vh;
+    top: 2vh;
   }
 
   .rectangle-shape{
@@ -191,10 +185,9 @@ flex-direction: column;
 gap: -10px;
 }
 
-#downloadBtn{
+.downloadBtn{
   position: relative;
-  top: -47vh;
-  left: 29.5vw;
+  left: 310pt;
   width: 70pt;
   font-size: 10pt;
     margin: 0;
@@ -202,4 +195,5 @@ gap: -10px;
     font-family: 'Open Sans', sans-serif;
     border: solid 2px white;
     padding: 15px;
+    top: -20pt
   }

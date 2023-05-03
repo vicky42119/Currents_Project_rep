@@ -12,61 +12,267 @@
     <section class="top-bar">
         <h3>Create Shapeface</h3>
         <h1>My Shapefaces</h1>
-        <h1> <a href="/typewritter/index.html"> Typewritter</a></h1>
+        <h1> <a href="../typewritter/index.html"> Typewritter</a></h1>
         <h1>Archive</h1>
       </section>
 
       <section class="line1"></section>
-
-    <div class="controls">
-        <p>
-          <button id="add" onclick="Add()"><div class="rectangle-shape"></button>
-        </p>
-        <p>
-          <button id="add-circle" onclick="AddCircle()"><div class="circle-shape"></button>
-        </p>
-        <p>
-          <button id="add-triangle" onclick="AddTriangle()"><div class="triangle-shape"></button>
-        </p>
-        <p>
-            <button id="add-bar" onclick="AddBar()"><div class="bar-shape"></button>
-          </p>
-          <p>
-            <button id="add-square" onclick="AddSquare()"><div class="square-shape"></button>
-          </p>
-         
-      </div>
-
       
-
-        <canvas id="c"></canvas>
-        <div class="canvas-container1">
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
-        <canvas id="c"></canvas>
+<div class="allcharacters">
+   <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=0><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=0><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=0><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=0><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=0><div class="square-shape"></button>
       </div>
-        
-     
-
-<div class="peopleinput">
-      <div class="textinput">
-        <label for="canvasName">Character Name: </label>
-        <input type="text" id="canvasName">
+      <canvas id="c0"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=0>Download</button>
       </div>
     </div>
-  
 
-  
-    <script src="modular-letters.js"></script>
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=1><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=1><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=1><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=1><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=1><div class="square-shape"></button>
+      </div>
+      <canvas id="c1"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=0>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=2><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=2><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=2><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=2><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=2><div class="square-shape"></button>
+      </div>
+      <canvas id="c2"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=2>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=3><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=3><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=3><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=3><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=3><div class="square-shape"></button>
+      </div>
+      <canvas id="c3"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=3>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=4><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=4><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=4><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=4><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=4><div class="square-shape"></button>
+      </div>
+      <canvas id="c4"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=0>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=5><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=5><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=5><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=5><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=5><div class="square-shape"></button>
+      </div>
+      <canvas id="c5"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=5>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=6><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=6><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=6><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=6><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=6><div class="square-shape"></button>
+      </div>
+      <canvas id="c6"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=6>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=7><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=7><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=7><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=7><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=7><div class="square-shape"></button>
+      </div>
+      <canvas id="c7"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=7>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=8><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=8><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=8><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=8><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=8><div class="square-shape"></button>
+      </div>
+      <canvas id="c8"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=8>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=9><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=9><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=9><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=9><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=9><div class="square-shape"></button>
+      </div>
+      <canvas id="c9"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=9>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=10><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=10><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=10><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=10><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=10><div class="square-shape"></button>
+      </div>
+      <canvas id="c10"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=10>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=11><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=11><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=11><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=11><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=11><div class="square-shape"></button>
+      </div>
+      <canvas id="c11"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=11>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=12><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=12><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=12><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=12><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=12><div class="square-shape"></button>
+      </div>
+      <canvas id="c12"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=12>Download</button>
+      </div>
+    </div>
+
+    <div class="canvas-group">
+      <div class="controls">   
+          <button class="add-rectangle" data-canvas=0><div class="rectangle-shape"></button>
+          <button class="add-circle" data-canvas=0><div class="circle-shape"></button>
+          <button class="add-triangle"  data-canvas=0><div class="triangle-shape"></button>
+            <button class="add-bar"  data-canvas=0><div class="bar-shape"></button>
+            <button class="add-square"  data-canvas=0><div class="square-shape"></button>
+      </div>
+      <canvas id="c0"></canvas>
+      <div class="peopleinput">
+        <div class="textinput">
+          <label for="canvasName">Character Name: </label>
+          <input type="text" id="canvasName">   
+        </div>
+        <button class="downloadBtn" data-canvas=0>Download</button>
+      </div>
+    </div>
+  </div>
+
+    <script src="modular-letters5.js"></script>
   </body>
 </html>
 
