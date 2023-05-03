@@ -1,7 +1,11 @@
 
   const keyImageMap = {
-    'A': 'typewritter/sq.png',
-    'B': 'image2.jpg',
+    'A': '../a.png',
+    'B': 'b.png',
+    'C': '../letters/c.png',
+    'D': '../letters/d.png',
+    'E': '../letters/e.png',
+    'F': '../letters/f.png',
     // add more key-image mappings here
   };
   

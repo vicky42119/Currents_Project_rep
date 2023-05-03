@@ -1,6 +1,5 @@
 
 
-  
   html {
       background-color: rgb(34, 34, 34);
       overflow: hidden;
@@ -19,6 +18,13 @@
       top: 7vh
     
     }
+
+    .text {
+      position: relative;
+      top: 4vh;
+      
+    
+    }
     
     body {
       margin-left: 2vw;
@@ -33,6 +39,11 @@
   
       }
     
+      a {
+        text-decoration: none;
+        color: white;
+  
+      }
 
     
     .top-bar {
@@ -50,6 +61,8 @@
       margin: 0;
       color: white;
       font-family: 'Open Sans', sans-serif;
+      position: relative;
+      top: 10vh;
     }
     
     h1 {
@@ -90,3 +103,5 @@
         overflow: auto;
         margin-top: 50px; /* add margin-top to move typewriter down */
     }
+
+    
