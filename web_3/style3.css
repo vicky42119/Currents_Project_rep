@@ -6,32 +6,33 @@
 position: relative;
 display: flex;
 flex-direction: row;
-gap: 10vh;
+gap: 40pt;
 position: relative;
 overflow-x: scroll;
-top: -10pt;
+bottom: -10vh;
 
 
 
 }
 
 html {
-    background-color: rgb(34, 34, 34);
+    background-color: rgb(255, 255, 255);
     overflow: hidden;
     
   }
   
   .controls {
     position: relative;
-    top: 1.75vh;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 10px;
-    width: 100%;
+    width: 25vh;
+    height: 48vh;
     margin: 0%;
-    margin-bottom: 20px;
     position: relative;
-    top: 3vh
+    border: 1pt solid #000000;
+    padding: 7pt
   
   }
   
@@ -41,12 +42,19 @@ html {
   
   canvas {
     display: block;
-    border: 2pt solid #ffffff;
+    border: 2pt solid #000000;
     position: relative;
-    width: 275pt;
-    height: 275pt;
+    width: 200pt;
+    height: 200pt;
 
 
+  }
+
+  .canvas-group {
+    display: flex;
+    flex: row;
+    gap: 20px;
+    height: 100vh;
   }
   
   .canvas-label {
@@ -70,15 +78,15 @@ html {
   h2 {
     font-size: 10pt;
     margin: 0;
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: 'Open Sans', sans-serif;
   }
   
   h1 {
     font-size: 20pt;
     margin: 0;
-    color: white;
-    border: 1px solid rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 2px solid rgb(0, 0, 0);
     border-radius: 10px;
     padding: 7pt;
     font-family: 'Open Sans', sans-serif;
@@ -86,71 +94,99 @@ html {
   }
   
   h1:hover {
-    background-color: gray;
+    background-color: rgb(165, 165, 165);
   }
   
   h3 {
     font-size: 20pt;
     margin: 0;
     color: rgb(255, 0, 0);
-    border: 1px solid rgb(255, 3, 3);
+    border: 2px solid rgb(255, 3, 3);
     border-radius: 10px;
     padding: 7pt;
     font-family: 'Open Sans', sans-serif;
     
   }
 
-  .line1 { width:100%; height: 1px; background: #fff; position: relative; top: 3vh;}
+  h4 {
+    font-size: 20pt;
+    margin: 0;
+    color: rgb(255, 0, 0);
+    font-family: 'Open Sans', sans-serif;
+    position: relative;
+    left: 5pt;
+ 
+    
+    
+  }
+
+  .line1 { width:100%; height: 1px; background: rgb(0, 0, 0); position: relative; top: 3vh;}
   
     
   button {
     font-size: 10pt;
     margin: 0;
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 10px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 5px;
     padding: 7pt;
     font-family: 'Open Sans', sans-serif;
-    background-color:rgb(34, 34, 34);
-    color: white;
+    background-color:rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     position: relative;
-    top: -2vh;
    
+  }
+
+  .button:hover{
+    background-color: rgb(179, 179, 179); 
   }
   
   
   input {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 16px;
-    padding: 8px;
+    padding: 5px;
     border-radius: 4px;
-    border: 1px solid rgb(255, 255, 255);
-    background-color:rgb(34, 34, 34);
+    border: 1px solid rgb(0, 0, 0);
+    background-color:rgb(255, 255, 255);
+    width: 14.5vw;
+    position: relative;
+    top: -1vh;
   }
 
   label {
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: 'Open Sans', sans-serif;
+    position: relative;
+    top:0vh;
+    font-size: 10pt;
+    
   }
 
   .textinput {
     position:relative;
-    top: 0vh;
+    top: 1.75vh;
   }
 
   .textinput2 {
     position:relative;
-    top: 2vh;
+    top: 1.5vh;
+  }
+
+  .textinput3 {
+    position: relative;
+    top: 10vh;
   }
 
   .peopleinput {
     position:relative;
-    top: 0vh;
+    padding: 0;
   }
 
   .rectangle-shape{
+    position: relative;
     width: 50px;
     height: 25px;
-    border: solid 2px white;
+    border: solid 2px rgb(255, 0, 0);
 }
   
 .circle-shape{
@@ -158,35 +194,53 @@ html {
   width: 22px;
   border-radius: 50%;
   display: inline-block;
-  border: solid 2px white;
+  border: solid 2px rgb(0, 17, 255);
   padding: 0%;
 
 }
 
 .triangle-shape{
+  position: relative;
   width: 0;
   height: 0;
   border-style: solid;
   border-width: 0 15px 29px 15px;
-  border-color: transparent transparent #ffffff transparent;
+  border-color: transparent transparent #9900ff transparent;
 
 }
 
 .bar-shape{
+  position: relative;
   width: 15px;
   height: 25px;
-  border: solid 2px white;
+  border: solid 2px rgb(9, 255, 0);
   transform: skew(-20deg);
   padding-left: 3pt;
   padding-right: 3pt;
 
+
 }
 
 .square-shape{
+  position: relative;
   width: 25px;
   height: 25px;
-  border: solid 2px white;
+  border: solid 2px rgb(255, 217, 0);
 }
+
+.semi-shape{
+  position: relative;
+  width: 35px;
+  height: 20px;
+  border: solid 2px rgb(255, 136, 0);
+  top: 8pt;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 150px 150px 0 0;
+}
+
+
+
 
 .peopleinput{
  
@@ -197,31 +251,43 @@ gap: -10px;
 
 .downloadBtn{
   position: relative;
-  left: 310pt;
+  top: 3vh;
   width: 70pt;
   font-size: 10pt;
     margin: 0;
-    color: white;
+    color: rgb(0, 0, 0);
     font-family: 'Open Sans', sans-serif;
-    border: solid 2px white;
+    border: solid 2px rgb(0, 0, 0);
     padding: 10px;
-    top: -30pt
   }
+
+
+  .downloadBtn:hover{
+    background-color: rgb(172, 172, 172);
+    
+    }
 
   .collaborateBtn{
     position: relative;
-    left: 270pt;
-    top: -16pt;
+    left: 255pt;
+    top: 5.2vh;
     width: 70pt;
+    height: 4vh;
     font-size: 10pt;
       margin: 0;
-      color: white;
+      color: rgb(0, 0, 0);
       font-family: 'Open Sans', sans-serif;
-      border: solid 2px white;
+      border: solid 2px rgb(0, 0, 0);
+    padding: 4pt;
     }
+
+    .collaborateBtn:hover{
+      background-color: rgb(172, 172, 172);
+      
+      }
 
     a {
       text-decoration: none;
-      color: white;
+      color: rgb(0, 0, 0);
 
     }

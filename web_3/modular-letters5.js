@@ -11,41 +11,50 @@ var deleteIcon = "data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F
   fabric.Object.prototype.cornerStyle = 'circle';
 
 var drawGrid = function(canvasToWorkOn) {
-    var gridSize = 33.3;
+    var gridSize = 20;
     for (var j = 0; j < canvasToWorkOn.width / gridSize; j++) {
-        canvasToWorkOn.add(new fabric.Line([ j * gridSize, 0, j * gridSize, canvasToWorkOn.height], { stroke: 'white', selectable: false }));
+        canvasToWorkOn.add(new fabric.Line([ j * gridSize, 0, j * gridSize, canvasToWorkOn.height], { stroke: 'black', selectable: false, opacity: 0.5 }));
     }
     for (var k = 0; k < canvasToWorkOn.height / gridSize; k++) {
-        canvasToWorkOn.add(new fabric.Line([ 0, k * gridSize, canvasToWorkOn.width, k * gridSize], { stroke: 'white', selectable: false }));
+        canvasToWorkOn.add(new fabric.Line([ 0, k * gridSize, canvasToWorkOn.width, k * gridSize], { stroke: 'black', selectable: false, opacity: 0.5 }));
     }
 };
 
 var saveLetter = function(canvas) {
-    // Create a new canvas with a transparent background
-    var transparentCanvas = new fabric.Canvas('transparentCanvas', {
-      backgroundColor: 'transparent',
-      width: canvas.width,
-      height: canvas.height
-    });
-  
-    // Clone each fabric object on the original canvas and add it to the new canvas
-    canvas.forEachObject(function(obj) {
-      var clone = fabric.util.object.clone(obj);
-      transparentCanvas.add(clone);
-    });
-  
-    // Remove the grid from the new canvas
-    transparentCanvas.getObjects('line').forEach(function(line) {
-      transparentCanvas.remove(line);
-    });
-  
-    // Convert the new canvas to a data URL with a transparent background
-    var dataURL = transparentCanvas.toDataURL('image/png');
-  
-    // Set the download link href to the data URL
-    // downloadBtn.href = dataURL;
-    console.log(dataURL);
-  };
+  // Create a new canvas with a transparent background
+  var transparentCanvas = new fabric.Canvas('transparentCanvas', {
+    backgroundColor: 'transparent',
+    width: canvas.width,
+    height: canvas.height
+  });
+
+  // Clone each fabric object on the original canvas and add it to the new canvas
+  canvas.forEachObject(function(obj) {
+    var clone = fabric.util.object.clone(obj);
+    transparentCanvas.add(clone);
+  });
+
+  // Remove the grid from the new canvas
+  transparentCanvas.getObjects('line').forEach(function(line) {
+    transparentCanvas.remove(line);
+  });
+
+  // Convert the new canvas to a data URL with a transparent background
+  var dataURL = transparentCanvas.toDataURL('image/png');
+
+  // Add event listener to download button
+  var downloadBtn = document.getElementsByClassName('downloadBtn')[0];
+  downloadBtn.addEventListener('click', function() {
+    var link = document.createElement('a');
+    link.download = 'my-canvas.png';
+    link.href = dataURL;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+
+  console.log(dataURL);
+};
 
   var getRandomColor = function() {
     var r = Math.floor(Math.random() * 256);
@@ -100,19 +109,20 @@ var AddCircle = function(canvas) {
     canvas.setActiveObject(triangle);
   }
 
-  var AddSquare = function(canvas) {
-    var square = new fabric.Rect({
-      left: 100,
-      top: 50,
-      fill: getRandomColor(),
-      width: 71.5,
-      height: 71.5,
-      objectCaching: false,
+  var AddPath = function(canvas) {
+
+    var path = new fabric.Path('M 0 50 Q 25 25, 50 50 T 100 50 T 150 50 T 200 50 T 250 50', {
+      fill: 'none',
+      stroke: getRandomColor(),
+      strokeWidth: 30,
       opacity: 0.65,
+      strokeLineCap: 'round',
+      strokeLineJoin: 'round'
+      
     });
   
-    canvas.add(square);
-    canvas.setActiveObject(square);
+    canvas.add(path);
+    canvas.setActiveObject(path);
   }
 
   
@@ -140,10 +150,30 @@ var AddCircle = function(canvas) {
   canvas.setActiveObject(bar);
 }
 
+var addSemiCircle = function(canvas) {
+
+  var semiCircle = new fabric.Circle({
+    radius: 50,
+    left: 100,
+    top: 100,
+    fill: '',
+    stroke: getRandomColor(),
+    strokeWidth: 25,
+    opacity: 0.65,
+    startAngle: Math.PI,
+    endAngle: -175,
+    objectCaching: false
+  });
+
+  canvas.add(semiCircle);
+  canvas.setActiveObject(semiCircle);
+}
+
+
 var fabricOptions = {
-  backgroundColor: 'rgb(34, 34, 34)', // Set the canvas background color
-  width: 500, // Set the canvas width
-  height: 500, // Set the canvas height
+  backgroundColor: 'white', // Set the canvas background color
+  width: 400, // Set the canvas width
+  height: 400, // Set the canvas height
   selection: false // Disable object selection
 };
 
@@ -195,13 +225,13 @@ for (var l = 0; l < allTriangleButtons.length; l++) {
     });
 }
 
-var allSquareButtons = document.getElementsByClassName("add-square");
+var allPathButtons = document.getElementsByClassName("add-path");
 
-for (var l = 0; l < allSquareButtons.length; l++) {
-    allSquareButtons[l].addEventListener("click", function() {
+for (var l = 0; l < allPathButtons.length; l++) {
+    allPathButtons[l].addEventListener("click", function() {
         var canvasId = this.getAttribute("data-canvas");
         var canvas = canvases[canvasId];
-        AddSquare(canvas);
+        AddPath(canvas);
     });
 }
 
@@ -212,6 +242,16 @@ for (var l = 0; l < allBarButtons.length; l++) {
         var canvasId = this.getAttribute("data-canvas");
         var canvas = canvases[canvasId];
         AddBar(canvas);
+    });
+}
+
+var allSemiButtons = document.getElementsByClassName("add-semi");
+
+for (var l = 0; l < allSemiButtons.length; l++) {
+    allSemiButtons[l].addEventListener("click", function() {
+        var canvasId = this.getAttribute("data-canvas");
+        var canvas = canvases[canvasId];
+        addSemiCircle(canvas);
     });
 }
 
